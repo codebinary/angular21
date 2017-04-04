@@ -3,6 +3,8 @@ import { Pages } from './pages.component';
 import { ModuleWithProviders } from '@angular/core';
 // noinspection TypeScriptValidateTypes
 
+import { AuthGuard } from '../guards/index';
+
 // export function loadChildren(path) { return System.import(path); };
 
 export const routes: Routes = [
@@ -27,7 +29,8 @@ export const routes: Routes = [
       { path: 'forms', loadChildren: 'app/pages/forms/forms.module#FormsModule' },
       { path: 'tables', loadChildren: 'app/pages/tables/tables.module#TablesModule' },
       { path: 'maps', loadChildren: 'app/pages/maps/maps.module#MapsModule' }
-    ]
+    ],
+    canActivate: [ AuthGuard ]
   }
 ];
 

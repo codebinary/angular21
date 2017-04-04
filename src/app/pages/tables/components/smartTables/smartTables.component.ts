@@ -12,6 +12,7 @@ import 'style-loader!./smartTables.scss';
 export class SmartTables {
 
   query: string = '';
+  datos = [];
 
   settings = {
     add: {
@@ -33,8 +34,8 @@ export class SmartTables {
         title: 'ID',
         type: 'number'
       },
-      firstName: {
-        title: 'First Name',
+      title: {
+        title: 'Titulo',
         type: 'string'
       },
       lastName: {
@@ -51,7 +52,11 @@ export class SmartTables {
       },
       age: {
         title: 'Age',
-        type: 'number'
+        type: 'string'
+      },
+      image: {
+        title: 'Image',
+        type: 'string'
       }
     }
   };
@@ -60,7 +65,9 @@ export class SmartTables {
 
   constructor(protected service: SmartTablesService) {
     this.service.getData().then((data) => {
-      this.source.load(data);
+      this.datos = data; 
+      console.log(this.datos.data);
+      this.source.load(this.datos.data);
     });
   }
 
