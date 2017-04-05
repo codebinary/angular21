@@ -4,6 +4,10 @@ import { Routes } from '@angular/router';
 import { BaMenuService } from '../theme';
 import { PAGES_MENU } from './pages.menu';
 
+
+//importamos el modelo user
+import { User } from './../model/index';
+
 @Component({
   selector: 'pages',
   template: `
@@ -31,8 +35,10 @@ import { PAGES_MENU } from './pages.menu';
     `
 })
 export class Pages {
+  currentUser: User;
 
   constructor(private _menuService: BaMenuService,) {
+    this.currentUser = JSON.parse(localStorage.getItem('identity'));
   }
 
   ngOnInit() {
