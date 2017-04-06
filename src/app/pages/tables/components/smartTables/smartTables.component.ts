@@ -34,29 +34,33 @@ export class SmartTables {
         title: 'ID',
         type: 'number'
       },
-      title: {
-        title: 'Titulo',
+      filmeTituloOriginal: {
+        title: 'Titulo Original',
         type: 'string'
       },
-      lastName: {
-        title: 'Last Name',
+      filmePaisProduccion: {
+        title: 'Pais producción',
         type: 'string'
       },
-      username: {
-        title: 'Username',
+      filmeIdioma: {
+        title: 'Idioma',
         type: 'string'
       },
-      email: {
-        title: 'E-mail',
+      filmeTipo: {
+        title: 'Tipo',
         type: 'string'
       },
-      age: {
-        title: 'Age',
-        type: 'string'
+      filmeAnioProduccion: {
+        title: 'Año producción',
+        type: 'date'
       },
-      image: {
-        title: 'Image',
-        type: 'string'
+      pdfName:{
+        title:'PDF',
+        type:'html',
+        valuePrepareFunction:(pdfName)=>{
+          return `<a target="_blank" class="btn btn-success" href="https://www.festivaldelima.com/2016/wp-content/themes/fdcl2016/modulos/convocatoria/docs/${pdfName}">PDF</a>`
+        },
+        filter:false     
       }
     }
   };
@@ -65,9 +69,11 @@ export class SmartTables {
 
   constructor(protected service: SmartTablesService) {
     this.service.getData().then((data) => {
-      this.datos = data; 
-      console.log(this.datos.data);
-      this.source.load(this.datos.data);
+      //this.datos = data; 
+      //console.log(this.datos.data);
+      //this.source.load(this.datos.data);
+      
+      this.source.load(data);
     });
   }
 

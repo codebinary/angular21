@@ -5,18 +5,19 @@ import { Headers, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Video } from '../../model/index';
+import { Movie } from './../../../model/index';
 
 @Injectable()
 export class SmartTablesService {
 
-  private videoUrl = "http://kia.com.pe/videos_app/video/list";
+  //private movieUrl = "http://localhost/projects/symfonys/festivaldelima/apifest/web/app_dev.php/api/v1/movie/list";
+  private movieUrl = "https://festivaldelima.com/2016/admin/api/v1/movie/list";
 
   constructor(private http: Http){}
 
 
-  getData(): Promise<Video[]> {
-    return this.http.get(this.videoUrl).map((res)=>{
+  getData(): Promise<Movie[]> {
+    return this.http.get(this.movieUrl).map((res)=>{
       return res.json()
     })
     .toPromise();

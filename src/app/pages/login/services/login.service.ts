@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LoginService{
 
-	public url = "http://kia.com.pe/videos_app";
+	public url = "https://festivaldelima.com/2016/admin/api/v1";
 
 	//Constructor
 	constructor(private http: Http){
