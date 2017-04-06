@@ -32,7 +32,7 @@ export class SmartTables {
     //   confirmDelete: true
     // },
     columns: {
-      id: {
+      position: {
         title: 'ID',
         type: 'number'
       },
@@ -41,7 +41,7 @@ export class SmartTables {
         type: 'string'
       },
       filmePaisProduccion: {
-        title: 'Pais producción',
+        title: 'País',
         type: 'string'
       },
       produccionNombreProductor: {
@@ -49,7 +49,7 @@ export class SmartTables {
         type: 'string'
       },
       filmeAnioProduccion: {
-        title: 'Año producción',
+        title: 'Año',
         type: 'date',
         noDataMessage: "No data"
       },
@@ -58,7 +58,7 @@ export class SmartTables {
         type: 'string',
       },
       pdfName:{
-        title:'PDF',
+        title:'',
         type:'html',
         valuePrepareFunction:(pdfName)=>{
           return `<a target="_blank" class="btn btn-success" href="https://www.festivaldelima.com/2016/wp-content/themes/fdcl2016/modulos/convocatoria/docs/${pdfName}">PDF</a>`

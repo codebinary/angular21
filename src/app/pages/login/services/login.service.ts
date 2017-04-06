@@ -18,7 +18,7 @@ export class LoginService{
 	}
 
 	login(user_to_login:Object){
-		console.log(user_to_login);
+		//console.log(user_to_login);
 		let json = JSON.stringify(user_to_login);
 		let params = "json="+json;
 		let headers = new Headers({'Content-Type':'application/x-www-form-urlencoded'});
@@ -32,6 +32,7 @@ export class LoginService{
 	logout(){
 		//Remove user from local storage to log user out 
 		localStorage.removeItem('token');
+		localStorage.removeItem('identity');
 	}
 
 }

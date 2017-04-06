@@ -49,7 +49,7 @@ export class Login {
         this.loginService.logout();
 
         //get return url from route parameters or default to '/'
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/pages';
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/pages/tables/smarttables';
         //Construimos el json para enviarlo con el hash
         this.values = {
           "email": "",
@@ -65,13 +65,13 @@ export class Login {
 
 
        this.values = values;
-       console.log(this.values);
+       //console.log(this.values);
 
        this.loginService.login(this.values).subscribe(
              response => {
                let identity = response;
                this.identity = identity;
-               console.log(identity);
+               //console.log(identity);
 
                if(this.identity.length <= 1){
                  console.log("error length el servidor");
@@ -86,13 +86,13 @@ export class Login {
                         response => {
                           let token = response;
                           this.token = token;
-                          console.log(token);
+                          //console.log(token);
                           if(this.token.length <= 0){
                               alert("Error en el servidor");
                           }else{
                               if(!this.token.status){
                                   localStorage.setItem('token', token);
-                                  console.log(token);
+                                  //console.log(token);
 
                                   //Redireccionamos
                                   this.router.navigate([this.returnUrl]);
