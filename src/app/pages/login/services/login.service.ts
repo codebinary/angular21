@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LoginService{
 
-	public url = "https://festivaldelima.com/2016/admin/api/v1";
+	public url = "https://festivaldelima.com/2016/appfest/api/v1";
 
 	//Constructor
 	constructor(private http: Http){

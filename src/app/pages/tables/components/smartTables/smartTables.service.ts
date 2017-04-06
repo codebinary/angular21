@@ -11,7 +11,7 @@ import { Movie } from './../../../model/index';
 export class SmartTablesService {
 
   //private movieUrl = "http://localhost/projects/symfonys/festivaldelima/apifest/web/app_dev.php/api/v1/movie/list";
-  private movieUrl = "https://festivaldelima.com/2016/admin/api/v1/movie/list";
+  private movieUrl = "https://festivaldelima.com/2016/appfest/api/v1/movie/list";
 
   constructor(private http: Http){}
 

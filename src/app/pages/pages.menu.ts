@@ -168,7 +168,7 @@ export const PAGES_MENU = [
         path: 'tables',
         data: {
           menu: {
-            title: 'Tables',
+            title: 'Datos',
             icon: 'ion-grid',
             selected: false,
             expanded: false,
@@ -176,19 +176,19 @@ export const PAGES_MENU = [
           }
         },
         children: [
-          {
-            path: 'basictables',
-            data: {
-              menu: {
-                title: 'Basic Tables',
-              }
-            }
-          },
+          // {
+          //   path: 'basictables',
+          //   data: {
+          //     menu: {
+          //       title: 'Basic Tables',
+          //     }
+          //   }
+          // },
           {
             path: 'smarttables',
             data: {
               menu: {
-                title: 'Smart Tables',
+                title: 'Listado convocatoria',
               }
             }
           }

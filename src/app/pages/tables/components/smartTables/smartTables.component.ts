@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DatePipe } from '@angular/common';
 
 import { SmartTablesService } from './smartTables.service';
 import { LocalDataSource } from 'ng2-smart-table';
@@ -10,25 +11,26 @@ import 'style-loader!./smartTables.scss';
   templateUrl: './smartTables.html',
 })
 export class SmartTables {
-
+  dPipe = new DatePipe('es-US');
   query: string = '';
   datos = [];
 
   settings = {
-    add: {
-      addButtonContent: '<i class="ion-ios-plus-outline"></i>',
-      createButtonContent: '<i class="ion-checkmark"></i>',
-      cancelButtonContent: '<i class="ion-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="ion-edit"></i>',
-      saveButtonContent: '<i class="ion-checkmark"></i>',
-      cancelButtonContent: '<i class="ion-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="ion-trash-a"></i>',
-      confirmDelete: true
-    },
+    actions: false,
+    // add: {
+    //   addButtonContent: '<i class="ion-ios-plus-outline"></i>',
+    //   createButtonContent: '<i class="ion-checkmark"></i>',
+    //   cancelButtonContent: '<i class="ion-close"></i>',
+    // },
+    // edit: {
+    //   editButtonContent: '<i class="ion-edit"></i>',
+    //   saveButtonContent: '<i class="ion-checkmark"></i>',
+    //   cancelButtonContent: '<i class="ion-close"></i>',
+    // },
+    // delete: {
+    //   deleteButtonContent: '<i class="ion-trash-a"></i>',
+    //   confirmDelete: true
+    // },
     columns: {
       id: {
         title: 'ID',
@@ -42,17 +44,18 @@ export class SmartTables {
         title: 'Pais producción',
         type: 'string'
       },
-      filmeIdioma: {
-        title: 'Idioma',
-        type: 'string'
-      },
-      filmeTipo: {
-        title: 'Tipo',
+      produccionNombreProductor: {
+        title: 'Productor',
         type: 'string'
       },
       filmeAnioProduccion: {
         title: 'Año producción',
-        type: 'date'
+        type: 'date',
+        noDataMessage: "No data"
+      },
+      createdAt: {
+        title: 'Fecha',
+        type: 'string',
       },
       pdfName:{
         title:'PDF',
@@ -72,7 +75,7 @@ export class SmartTables {
       //this.datos = data; 
       //console.log(this.datos.data);
       //this.source.load(this.datos.data);
-      
+      console.log(this.dPipe.transform(new Date(), 'yyyy-MMMM-dd'));
       this.source.load(data);
     });
   }

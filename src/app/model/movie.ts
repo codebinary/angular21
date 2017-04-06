@@ -65,7 +65,8 @@ export class Video{
 		public acuerdoTelefono:string,
 		public acuerdoEmail:string,
 		public acuerdoFecha:string,
-		public acuerdoDni:string
+		public acuerdoDni:string,
+		public createdAt:string,
 		
 	){}
 }
